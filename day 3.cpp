@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
-int sum=0,reference=-1,count=0;
-int ids[5][4];
+int sum=0,reference=-1,count=0,ids[5][4];
 int group(int** mat, int row, int col,int m,int n){
     if (mat[m][n]<=0){
         return 0;
@@ -77,7 +76,7 @@ int minimum(int** lindex, int N, int row, int col){
 int main(){
     int N=5,M=5;
     cin>>N>>M;
-    int** mat = new int*[M];
+    int** mat = new int*[N];
     for(int i=0;i<M;i++){
         mat[i] = new int[N];
     }
@@ -91,13 +90,9 @@ int main(){
     mat[2]=new int[5]{2,0,0,0,0};
     mat[3]=new int[5]{0,1,0,2,3};
     mat[4]=new int[5]{0,0,1,1,0};
-    for(int i=0;i<N;++i){
-        for(int j=0;j<M;++j){
-            cout<<mat[i][j]<<"   ";
-        }
-        cout<<endl;
-    } */
+     */
     traverse(mat,N,M);
+    
     int lref=0;
     //cout<<"Groups: \n";
     // identify the leader index
@@ -147,6 +142,9 @@ int main(){
         //cout<<ids[i][0]<<"  "<<ids[i][1]<<"  "<<ids[i][2]<<"  "<<ids[i][3]<<endl;
         if(i!=lref)
             cout<<ids[i][0]<<"  "<<ids[i][3]<<endl;
+    }
+    for(int i=0;i<N;++i){
+        delete [] mat[i];
     }
     return 0;
 }
