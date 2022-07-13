@@ -277,31 +277,31 @@ class door : public pairing{
 }d1;
 class device : public Temprature,public Waterlevel,public Motion,public gas,public light,public fan,public door{
     public:
-        void config(float temperature, float waterheight,bool motion,bool gas){
+        void config(float temperature, float waterheight,bool motion,bool Gas,Temprature *t1,Waterlevel *w1,Motion *m1,gas *g1,fan *f1,light *l1,door *d1){
             // Feeding values
-            t1.setcurtemp(temperature);
-            t1.setstate(true);
-            w1.setheight(waterheight);
-            w1.setstate(true);
-            m1.setstate(motion);
-            g1.setstate(gas);
+            t1->setcurtemp(temperature);
+            t1->setstate(true);
+            w1->setheight(waterheight);
+            w1->setstate(true);
+            m1->setstate(motion);
+            g1->setstate(Gas);
             // Manipulation values
             // If temperature more than 22 turn on fan 
             if(temperature > 22.0)
-                f1.on();
+                f1->on();
             else  
-                f1.off();
+                f1->off();
             // If Motion detected turn on light
             if(motion)
-                l1.on();
+                l1->on();
             else 
-                l1.off();
+                l1->off();
             // If gas leak found open Door 
-            if(gas)
-                d1.on();
+            if(Gas)
+                d1->on();
             else 
-                d1.off();
-            status.push_back(tuple <float,bool,float,bool,bool,bool,bool,bool,bool> (temperature,t1.getstate(),waterheight,w1.getstate(),motion,gas,f1.getstate(),l1.getstate(),d1.getstate()));
+                d1->off();
+            status.push_back(tuple <float,bool,float,bool,bool,bool,bool,bool,bool> (temperature,t1->getstate(),waterheight,w1->getstate(),motion,Gas,f1->getstate(),l1->getstate(),d1->getstate()));
         }
         string ans(int x){
             if(x)
@@ -326,7 +326,7 @@ class device : public Temprature,public Waterlevel,public Motion,public gas,publ
 }device1;
 int main(){
 
-    device1.config(13,10,false,true);
+    device1.config(13,10,false,true,&t1,&w1,&m1,&g1,&f1,&l1,&d1);
     cout<<"\n\n";
     device1.getlastconfig();
     cout<<"\n\n";
