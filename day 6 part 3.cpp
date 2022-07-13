@@ -98,20 +98,19 @@ using namespace std;
 int main(){
     // Age Error
     
-    //Student obj(21,5,"CIVIL","Jhon");
+    Student obj(21,5,"CIVIL","Jhon");
     
-    // Name Error
+    // Name Error un comment below
 
     //Student obj(21,20,"CIVIL","Jhon");
 
-    // course Error
+    // course Error un comment below
 
     //Student obj(21,20,"AI","Jhon");
 
     // Too many students
 
-    Student obj1(21,20,"CIVIL","Jhon");
-    Student obj2(21,20,"CIVIL","Jhon"); 
-    
+    Student sobj(21,20,"CIVIL","Jhon"); 
+
     return 0;
 }
