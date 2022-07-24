@@ -1,0 +1,25 @@
+syntax="proto3";
+
+message user{
+    int32 id=1;
+    string username=6;
+    string password=2;
+    string email=3;
+    string name=4;
+    string location=5;
+}
+
+message users{
+    repeated user bookuser=1;
+}
+
+message project_detail{
+    int32 id=1;
+    string name=2;
+    string creator=3;
+    repeated string line=4;
+}
+
+message project_list{
+    repeated project_detail bookproject=1;
+}
